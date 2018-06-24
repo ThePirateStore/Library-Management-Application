@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BodyTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.Dashboard = new System.Windows.Forms.TabPage();
             this.Book_Issue = new System.Windows.Forms.TabPage();
+            this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.Minimize = new System.Windows.Forms.Button();
+            this.Close = new System.Windows.Forms.Button();
+            this.SidePanelSlideTimer = new System.Windows.Forms.Timer(this.components);
             this.gradientPanel2 = new LibraryManagement.GradientPanel();
             this.BookIssueButton = new System.Windows.Forms.Button();
             this.SidePanel = new LibraryManagement.GradientPanel();
             this.DashboardButton = new System.Windows.Forms.Button();
             this.DragControl = new LibraryManagement.DragControl();
-            this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.Close = new System.Windows.Forms.Button();
-            this.Minimize = new System.Windows.Forms.Button();
             this.BodyTabControl.SuspendLayout();
-            this.gradientPanel2.SuspendLayout();
             this.HeaderPanel.SuspendLayout();
+            this.gradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BodyTabControl
@@ -76,6 +78,48 @@
             this.Book_Issue.Text = "Book Issue";
             this.Book_Issue.UseVisualStyleBackColor = true;
             // 
+            // HeaderPanel
+            // 
+            this.HeaderPanel.BackColor = System.Drawing.Color.White;
+            this.HeaderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HeaderPanel.Controls.Add(this.Minimize);
+            this.HeaderPanel.Controls.Add(this.Close);
+            this.HeaderPanel.Location = new System.Drawing.Point(175, 0);
+            this.HeaderPanel.Name = "HeaderPanel";
+            this.HeaderPanel.Size = new System.Drawing.Size(768, 22);
+            this.HeaderPanel.TabIndex = 3;
+            // 
+            // Minimize
+            // 
+            this.Minimize.BackColor = System.Drawing.Color.Transparent;
+            this.Minimize.FlatAppearance.BorderSize = 0;
+            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minimize.Location = new System.Drawing.Point(722, -6);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(20, 27);
+            this.Minimize.TabIndex = 5;
+            this.Minimize.Text = "-";
+            this.Minimize.UseVisualStyleBackColor = false;
+            // 
+            // Close
+            // 
+            this.Close.BackColor = System.Drawing.Color.Transparent;
+            this.Close.FlatAppearance.BorderSize = 0;
+            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Close.Location = new System.Drawing.Point(738, 0);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(20, 20);
+            this.Close.TabIndex = 4;
+            this.Close.Text = "X";
+            this.Close.UseVisualStyleBackColor = false;
+            // 
+            // SidePanelSlideTimer
+            // 
+            this.SidePanelSlideTimer.Interval = 1;
+            this.SidePanelSlideTimer.Tick += new System.EventHandler(this.SidePanelSlideTimer_Tick);
+            // 
             // gradientPanel2
             // 
             this.gradientPanel2.Angle = 45F;
@@ -100,7 +144,7 @@
             this.BookIssueButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.BookIssueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIssueButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BookIssueButton.Location = new System.Drawing.Point(3, 114);
+            this.BookIssueButton.Location = new System.Drawing.Point(3, 111);
             this.BookIssueButton.Name = "BookIssueButton";
             this.BookIssueButton.Size = new System.Drawing.Size(187, 45);
             this.BookIssueButton.TabIndex = 2;
@@ -140,43 +184,6 @@
             // 
             this.DragControl.SelectControl = this.HeaderPanel;
             // 
-            // HeaderPanel
-            // 
-            this.HeaderPanel.BackColor = System.Drawing.Color.White;
-            this.HeaderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HeaderPanel.Controls.Add(this.Minimize);
-            this.HeaderPanel.Controls.Add(this.Close);
-            this.HeaderPanel.Location = new System.Drawing.Point(175, 0);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(768, 22);
-            this.HeaderPanel.TabIndex = 3;
-            // 
-            // Close
-            // 
-            this.Close.BackColor = System.Drawing.Color.Transparent;
-            this.Close.FlatAppearance.BorderSize = 0;
-            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close.Location = new System.Drawing.Point(738, 0);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(20, 20);
-            this.Close.TabIndex = 4;
-            this.Close.Text = "X";
-            this.Close.UseVisualStyleBackColor = false;
-            // 
-            // Minimize
-            // 
-            this.Minimize.BackColor = System.Drawing.Color.Transparent;
-            this.Minimize.FlatAppearance.BorderSize = 0;
-            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minimize.Location = new System.Drawing.Point(687, -3);
-            this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(20, 24);
-            this.Minimize.TabIndex = 5;
-            this.Minimize.Text = "-";
-            this.Minimize.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,8 +196,8 @@
             this.Name = "Form1";
             this.Text = "Library Manager";
             this.BodyTabControl.ResumeLayout(false);
-            this.gradientPanel2.ResumeLayout(false);
             this.HeaderPanel.ResumeLayout(false);
+            this.gradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -207,6 +214,7 @@
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.Timer SidePanelSlideTimer;
     }
 }
 
