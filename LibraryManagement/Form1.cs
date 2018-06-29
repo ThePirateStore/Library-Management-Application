@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace LibraryManagement
 {
@@ -9,6 +10,10 @@ namespace LibraryManagement
         int top;
         int difference;
         int toAdd;
+
+        private string connStr = "Data Source=.;Initial Catalog=dbLibManager;Integrated Security=True";
+
+        private SqlConnection conn;
 
         bool updown;
 
@@ -37,6 +42,27 @@ namespace LibraryManagement
             SidePanel.Height = BookIssueButton.Height;
         }
 
+        private void MembersButton_Click(object sender, EventArgs e)
+        {
+            BodyTabControl.SelectTab(Members);
+
+            //SidePanel.Top = BookIssueButton.Top;
+            SlidePanel(SidePanel.Top, MembersButton.Top);
+
+            SidePanel.Height = MembersButton.Height;
+        }
+
+        private void BooksButton_Click(object sender, EventArgs e)
+        {
+            BodyTabControl.SelectTab(Books);
+
+            //SidePanel.Top = BookIssueButton.Top;
+            SlidePanel(SidePanel.Top, BooksButton.Top);
+
+            SidePanel.Height = BooksButton.Height;
+        }
+
+        #region Slide Panel
         private void SlidePanel(int sidepanelTop, int buttonTop)
         {
             if (sidepanelTop > buttonTop)
@@ -56,7 +82,7 @@ namespace LibraryManagement
 
             difference = bottom - top;
 
-            toAdd = Convert.ToInt32(difference / 22.5);
+            toAdd = difference / 23;
 
             SidePanelSlideTimer.Start();
         }
@@ -75,6 +101,7 @@ namespace LibraryManagement
                 else
                 {
                     top += toAdd;
+
                     SidePanel.Top = top;
                 }
             }
@@ -85,14 +112,11 @@ namespace LibraryManagement
                 else
                 {
                     bottom -= toAdd;
+
                     SidePanel.Top = bottom;
                 }
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }
