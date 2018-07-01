@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace LibraryManagement
 {
@@ -26,8 +27,10 @@ namespace LibraryManagement
         {
             BodyTabControl.SelectTab(Dashboard);
 
-            //SidePanel.Top = DashboardButton.Top;
-            SlidePanel(SidePanel.Top, DashboardButton.Top);
+            if (SlidingTbiSwitch.Checked)
+                SlidePanel(SidePanel.Top, DashboardButton.Top);
+            else
+                SidePanel.Top = DashboardButton.Top;
 
             SidePanel.Height = DashboardButton.Height;
         }
@@ -36,8 +39,10 @@ namespace LibraryManagement
         {
             BodyTabControl.SelectTab(Book_Issue);
 
-            //SidePanel.Top = BookIssueButton.Top;
-            SlidePanel(SidePanel.Top, BookIssueButton.Top);
+            if (SlidingTbiSwitch.Checked)
+                SlidePanel(SidePanel.Top, BookIssueButton.Top);
+            else
+                SidePanel.Top = BookIssueButton.Top;
 
             SidePanel.Height = BookIssueButton.Height;
         }
@@ -46,8 +51,10 @@ namespace LibraryManagement
         {
             BodyTabControl.SelectTab(Members);
 
-            //SidePanel.Top = BookIssueButton.Top;
-            SlidePanel(SidePanel.Top, MembersButton.Top);
+            if (SlidingTbiSwitch.Checked)
+                SlidePanel(SidePanel.Top, MembersButton.Top);
+            else
+                SidePanel.Top = MembersButton.Top;
 
             SidePanel.Height = MembersButton.Height;
         }
@@ -56,8 +63,10 @@ namespace LibraryManagement
         {
             BodyTabControl.SelectTab(Books);
 
-            //SidePanel.Top = BookIssueButton.Top;
-            SlidePanel(SidePanel.Top, BooksButton.Top);
+            if (SlidingTbiSwitch.Checked)
+                SlidePanel(SidePanel.Top, BooksButton.Top);
+            else
+                SidePanel.Top = BooksButton.Top;
 
             SidePanel.Height = BooksButton.Height;
         }
@@ -118,5 +127,56 @@ namespace LibraryManagement
             }
         }
         #endregion
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            BodyTabControl.SelectTab(Settings);
+        }
+
+        private void GradientThemeRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GradientThemeRadio.Checked)
+                SolidThemeRadio.Checked = false;
+        }
+
+        private void SolidThemeRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SolidThemeRadio.Checked)
+                GradientThemeRadio.Checked = false;
+        }
+
+        private void GradientThemeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string theme = GradientThemeCombo.SelectedItem.ToString().ToLower();
+
+            SideBoard.Invalidate();
+            DemoPanelG.Invalidate();
+            switch (theme)
+            {
+                case "ohhappiness":
+                    SideBoard.TopColor = Color.FromArgb(150, 201, 61);
+                    SideBoard.BottomColor = Color.FromArgb(0, 176, 155);
+
+                    DemoPanelG.TopColor = Color.FromArgb(150, 201, 61);
+                    DemoPanelG.BottomColor = Color.FromArgb(0, 176, 155);
+                    break;
+
+                case "orange fun":
+                    SideBoard.TopColor = Color.FromArgb(247, 183, 51);
+                    SideBoard.BottomColor = Color.FromArgb(252, 74, 26);
+
+                    DemoPanelG.TopColor = Color.FromArgb(247, 183, 51);
+                    DemoPanelG.BottomColor = Color.FromArgb(252, 74, 26);
+                    break;
+
+                case "rainbow blue":
+                    SideBoard.BottomColor = Color.FromArgb(5, 117, 230);
+                    SideBoard.TopColor = Color.FromArgb(0, 242, 96);
+
+                    DemoPanelG.BottomColor = Color.FromArgb(5, 117, 230);
+                    DemoPanelG.TopColor = Color.FromArgb(0, 242, 96);
+                    break;
+            }
+        }
     }
 }

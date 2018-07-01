@@ -36,6 +36,19 @@
             this.Members = new System.Windows.Forms.TabPage();
             this.Books = new System.Windows.Forms.TabPage();
             this.Settings = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.DemoPanelG = new LibraryManagement.GradientPanel();
+            this.GradientThemeRadio = new System.Windows.Forms.RadioButton();
+            this.GradientThemeCombo = new System.Windows.Forms.ComboBox();
+            this.DemoPanelS = new System.Windows.Forms.Panel();
+            this.SolidThemeRadio = new System.Windows.Forms.RadioButton();
+            this.SolidThemeCombo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SlidingTbiSwitch = new LibraryManagement.ToggleSwitch();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.SidePanelSlideTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,9 +61,11 @@
             this.DashboardButton = new System.Windows.Forms.Button();
             this.BooksButton = new System.Windows.Forms.Button();
             this.DragControl = new LibraryManagement.DragControl();
-            this.toggleSwitch1 = new LibraryManagement.ToggleSwitch();
             this.BodyTabControl.SuspendLayout();
             this.Settings.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.DemoPanelG.SuspendLayout();
+            this.DemoPanelS.SuspendLayout();
             this.SideBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,13 +126,159 @@
             // 
             // Settings
             // 
-            this.Settings.Controls.Add(this.toggleSwitch1);
+            this.Settings.Controls.Add(this.panel2);
+            this.Settings.Controls.Add(this.label5);
+            this.Settings.Controls.Add(this.label4);
+            this.Settings.Controls.Add(this.label3);
+            this.Settings.Controls.Add(this.label2);
+            this.Settings.Controls.Add(this.label1);
+            this.Settings.Controls.Add(this.SlidingTbiSwitch);
             this.Settings.Location = new System.Drawing.Point(4, 22);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(738, 430);
             this.Settings.TabIndex = 4;
             this.Settings.Text = "Settings";
             this.Settings.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.DemoPanelG);
+            this.panel2.Controls.Add(this.DemoPanelS);
+            this.panel2.Location = new System.Drawing.Point(39, 163);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(566, 192);
+            this.panel2.TabIndex = 6;
+            // 
+            // DemoPanelG
+            // 
+            this.DemoPanelG.Angle = 45F;
+            this.DemoPanelG.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(155)))));
+            this.DemoPanelG.Controls.Add(this.GradientThemeRadio);
+            this.DemoPanelG.Controls.Add(this.GradientThemeCombo);
+            this.DemoPanelG.Location = new System.Drawing.Point(0, 0);
+            this.DemoPanelG.Name = "DemoPanelG";
+            this.DemoPanelG.Size = new System.Drawing.Size(273, 192);
+            this.DemoPanelG.TabIndex = 11;
+            this.DemoPanelG.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(201)))), ((int)(((byte)(61)))));
+            // 
+            // GradientThemeRadio
+            // 
+            this.GradientThemeRadio.AutoSize = true;
+            this.GradientThemeRadio.Location = new System.Drawing.Point(12, 13);
+            this.GradientThemeRadio.Name = "GradientThemeRadio";
+            this.GradientThemeRadio.Size = new System.Drawing.Size(65, 17);
+            this.GradientThemeRadio.TabIndex = 2;
+            this.GradientThemeRadio.Text = "Gradient";
+            this.GradientThemeRadio.UseVisualStyleBackColor = true;
+            this.GradientThemeRadio.CheckedChanged += new System.EventHandler(this.GradientThemeRadio_CheckedChanged);
+            // 
+            // GradientThemeCombo
+            // 
+            this.GradientThemeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GradientThemeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GradientThemeCombo.FormattingEnabled = true;
+            this.GradientThemeCombo.Items.AddRange(new object[] {
+            "Ohhappiness",
+            "Rainbow Blue",
+            "Orange Fun"});
+            this.GradientThemeCombo.Location = new System.Drawing.Point(114, 11);
+            this.GradientThemeCombo.Name = "GradientThemeCombo";
+            this.GradientThemeCombo.Size = new System.Drawing.Size(136, 21);
+            this.GradientThemeCombo.TabIndex = 0;
+            this.GradientThemeCombo.SelectedIndexChanged += new System.EventHandler(this.GradientThemeCombo_SelectedIndexChanged);
+            // 
+            // DemoPanelS
+            // 
+            this.DemoPanelS.Controls.Add(this.SolidThemeRadio);
+            this.DemoPanelS.Controls.Add(this.SolidThemeCombo);
+            this.DemoPanelS.Location = new System.Drawing.Point(298, 0);
+            this.DemoPanelS.Name = "DemoPanelS";
+            this.DemoPanelS.Size = new System.Drawing.Size(267, 192);
+            this.DemoPanelS.TabIndex = 12;
+            // 
+            // SolidThemeRadio
+            // 
+            this.SolidThemeRadio.AutoSize = true;
+            this.SolidThemeRadio.Location = new System.Drawing.Point(14, 11);
+            this.SolidThemeRadio.Name = "SolidThemeRadio";
+            this.SolidThemeRadio.Size = new System.Drawing.Size(48, 17);
+            this.SolidThemeRadio.TabIndex = 2;
+            this.SolidThemeRadio.TabStop = true;
+            this.SolidThemeRadio.Text = "Solid";
+            this.SolidThemeRadio.UseVisualStyleBackColor = true;
+            this.SolidThemeRadio.CheckedChanged += new System.EventHandler(this.SolidThemeRadio_CheckedChanged);
+            // 
+            // SolidThemeCombo
+            // 
+            this.SolidThemeCombo.FormattingEnabled = true;
+            this.SolidThemeCombo.Location = new System.Drawing.Point(105, 11);
+            this.SolidThemeCombo.Name = "SolidThemeCombo";
+            this.SolidThemeCombo.Size = new System.Drawing.Size(136, 21);
+            this.SolidThemeCombo.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(36, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(214, 14);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Customize the look and feel of your app";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(35, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Themes";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(36, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(529, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Determines whether the sliding function of the Selected Tab Indicator should be e" +
+    "nabled or disabled.\r\nDefault is disabled.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Sliding Tab Indicator";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 27);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Persnalization";
+            // 
+            // SlidingTbiSwitch
+            // 
+            this.SlidingTbiSwitch.AutoSize = true;
+            this.SlidingTbiSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SlidingTbiSwitch.Location = new System.Drawing.Point(654, 34);
+            this.SlidingTbiSwitch.Name = "SlidingTbiSwitch";
+            this.SlidingTbiSwitch.Padding = new System.Windows.Forms.Padding(6);
+            this.SlidingTbiSwitch.Size = new System.Drawing.Size(57, 26);
+            this.SlidingTbiSwitch.TabIndex = 1;
+            this.SlidingTbiSwitch.Text = "toggle ";
+            this.SlidingTbiSwitch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SlidingTbiSwitch.UseVisualStyleBackColor = true;
             // 
             // HeaderPanel
             // 
@@ -189,6 +350,7 @@
             this.SettingsButton.Size = new System.Drawing.Size(38, 35);
             this.SettingsButton.TabIndex = 5;
             this.SettingsButton.UseVisualStyleBackColor = false;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
             // MembersButton
             // 
@@ -289,17 +451,6 @@
             // 
             this.DragControl.SelectControl = this.HeaderPanel;
             // 
-            // toggleSwitch1
-            // 
-            this.toggleSwitch1.AutoSize = true;
-            this.toggleSwitch1.Location = new System.Drawing.Point(643, 24);
-            this.toggleSwitch1.Name = "toggleSwitch1";
-            this.toggleSwitch1.Padding = new System.Windows.Forms.Padding(6);
-            this.toggleSwitch1.Size = new System.Drawing.Size(70, 29);
-            this.toggleSwitch1.TabIndex = 1;
-            this.toggleSwitch1.Text = "toggle ";
-            this.toggleSwitch1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +466,11 @@
             this.BodyTabControl.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.DemoPanelG.ResumeLayout(false);
+            this.DemoPanelG.PerformLayout();
+            this.DemoPanelS.ResumeLayout(false);
+            this.DemoPanelS.PerformLayout();
             this.SideBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -339,7 +495,19 @@
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage Settings;
-        private ToggleSwitch toggleSwitch1;
+        private System.Windows.Forms.Panel panel2;
+        private GradientPanel DemoPanelG;
+        private System.Windows.Forms.ComboBox GradientThemeCombo;
+        private System.Windows.Forms.Panel DemoPanelS;
+        private System.Windows.Forms.ComboBox SolidThemeCombo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private ToggleSwitch SlidingTbiSwitch;
+        private System.Windows.Forms.RadioButton SolidThemeRadio;
+        private System.Windows.Forms.RadioButton GradientThemeRadio;
     }
 }
 
