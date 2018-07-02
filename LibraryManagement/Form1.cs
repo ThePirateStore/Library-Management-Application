@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Data;
 
 namespace LibraryManagement
 {
@@ -149,33 +150,78 @@ namespace LibraryManagement
         {
             string theme = GradientThemeCombo.SelectedItem.ToString().ToLower();
 
-            SideBoard.Invalidate();
-            DemoPanelG.Invalidate();
-            switch (theme)
+            using (conn = new SqlConnection(connStr))
             {
-                case "ohhappiness":
-                    SideBoard.TopColor = Color.FromArgb(150, 201, 61);
-                    SideBoard.BottomColor = Color.FromArgb(0, 176, 155);
+                SqlCommand cm;
+                SqlCommand cm1;
 
-                    DemoPanelG.TopColor = Color.FromArgb(150, 201, 61);
-                    DemoPanelG.BottomColor = Color.FromArgb(0, 176, 155);
-                    break;
+                string top;
+                string bottom;
 
-                case "orange fun":
-                    SideBoard.TopColor = Color.FromArgb(247, 183, 51);
-                    SideBoard.BottomColor = Color.FromArgb(252, 74, 26);
+                conn.Open();
 
-                    DemoPanelG.TopColor = Color.FromArgb(247, 183, 51);
-                    DemoPanelG.BottomColor = Color.FromArgb(252, 74, 26);
-                    break;
+                SideBoard.Invalidate();
+                DemoPanelG.Invalidate();
+                switch (theme)
+                {
+                    case "ohhappiness":
+                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
+                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
 
-                case "rainbow blue":
-                    SideBoard.BottomColor = Color.FromArgb(5, 117, 230);
-                    SideBoard.TopColor = Color.FromArgb(0, 242, 96);
+                        cm.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm.Parameters["@name"].Value = theme;
+                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm1.Parameters["@name"].Value = theme;
 
-                    DemoPanelG.BottomColor = Color.FromArgb(5, 117, 230);
-                    DemoPanelG.TopColor = Color.FromArgb(0, 242, 96);
-                    break;
+                        top = cm.ExecuteScalar().ToString();
+                        bottom = cm1.ExecuteScalar().ToString();
+
+                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
+                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
+
+                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
+                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+
+                        break;
+
+                    case "orange fun":
+                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
+                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
+
+                        cm.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm.Parameters["@name"].Value = theme;
+                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm1.Parameters["@name"].Value = theme;
+
+                        top = cm.ExecuteScalar().ToString();
+                        bottom = cm1.ExecuteScalar().ToString();
+
+                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
+                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
+
+                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
+                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+                        break;
+
+                    case "rainbow blue":
+                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
+                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
+
+                        cm.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm.Parameters["@name"].Value = theme;
+                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
+                        cm1.Parameters["@name"].Value = theme;
+
+                        top = cm.ExecuteScalar().ToString();
+                        bottom = cm1.ExecuteScalar().ToString();
+
+                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
+                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
+
+                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
+                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+                        break;
+                }
             }
         }
     }
