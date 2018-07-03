@@ -152,76 +152,28 @@ namespace LibraryManagement
 
             using (conn = new SqlConnection(connStr))
             {
-                SqlCommand cm;
-                SqlCommand cm1;
-
-                string top;
-                string bottom;
-
                 conn.Open();
 
                 SideBoard.Invalidate();
                 DemoPanelG.Invalidate();
-                switch (theme)
-                {
-                    case "ohhappiness":
-                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
-                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
 
-                        cm.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm.Parameters["@name"].Value = theme;
-                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm1.Parameters["@name"].Value = theme;
+                SqlCommand cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
+                SqlCommand cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
 
-                        top = cm.ExecuteScalar().ToString();
-                        bottom = cm1.ExecuteScalar().ToString();
+                cm.Parameters.Add("@name", SqlDbType.VarChar);
+                cm.Parameters["@name"].Value = theme;
+                cm1.Parameters.Add("@name", SqlDbType.VarChar);
+                cm1.Parameters["@name"].Value = theme;
 
-                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
-                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
+                string top = cm.ExecuteScalar().ToString();
+                string bottom = cm1.ExecuteScalar().ToString();
 
-                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
-                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+                SideBoard.TopColor = ColorTranslator.FromHtml(top);
+                SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
 
-                        break;
-
-                    case "orange fun":
-                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
-                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
-
-                        cm.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm.Parameters["@name"].Value = theme;
-                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm1.Parameters["@name"].Value = theme;
-
-                        top = cm.ExecuteScalar().ToString();
-                        bottom = cm1.ExecuteScalar().ToString();
-
-                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
-                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
-
-                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
-                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
-                        break;
-
-                    case "rainbow blue":
-                        cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
-                        cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
-
-                        cm.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm.Parameters["@name"].Value = theme;
-                        cm1.Parameters.Add("@name", SqlDbType.VarChar);
-                        cm1.Parameters["@name"].Value = theme;
-
-                        top = cm.ExecuteScalar().ToString();
-                        bottom = cm1.ExecuteScalar().ToString();
-
-                        SideBoard.TopColor = ColorTranslator.FromHtml(top);
-                        SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
-
-                        DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
-                        DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
-                        break;
-                }
+                DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
+                DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+                
             }
         }
     }
