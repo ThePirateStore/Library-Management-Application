@@ -22,6 +22,13 @@ namespace LibraryManagement
         public Form1()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            SolidThemeCombo.SelectedIndex = 0;
+            GradientThemeCombo.SelectedIndex = 0;
         }
 
         private void DashboardButton_Click(object sender, EventArgs e)
@@ -137,18 +144,40 @@ namespace LibraryManagement
         private void GradientThemeRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (GradientThemeRadio.Checked)
-                SolidThemeRadio.Checked = false;
+            {
+                SolidThemeCombo.Enabled = false;
+                GradientThemeCombo.Enabled = true;
+
+                ChangeTheme(GradientThemeCombo);
+            }
+                
         }
 
         private void SolidThemeRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (SolidThemeRadio.Checked)
-                GradientThemeRadio.Checked = false;
+            {
+                GradientThemeCombo.Enabled = false;
+                SolidThemeCombo.Enabled = true;
+
+                ChangeTheme(SolidThemeCombo);
+            }
+                
         }
 
         private void GradientThemeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string theme = GradientThemeCombo.SelectedItem.ToString().ToLower();
+            ChangeTheme(GradientThemeCombo);
+        }
+
+        private void SolidThemeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeTheme(SolidThemeCombo);
+        }
+
+        private void ChangeTheme(ComboBox combo)
+        {
+            string theme = combo.SelectedItem.ToString().ToLower();
 
             using (conn = new SqlConnection(connStr))
             {
@@ -157,24 +186,27 @@ namespace LibraryManagement
                 SideBoard.Invalidate();
                 DemoPanelG.Invalidate();
 
-                SqlCommand cm = new SqlCommand("Select ColorTop From Theme Where [Name] = @name", conn);
-                SqlCommand cm1 = new SqlCommand("Select ColorBottom From Theme Where [Name] = @name", conn);
+                SqlCommand cm = new SqlCommand("Select Case @color when 'top' then ColorTop when 'bottom' then ColorBottom End as Coloumn From Theme Where [Name] = @name", conn);
 
                 cm.Parameters.Add("@name", SqlDbType.VarChar);
-                cm.Parameters["@name"].Value = theme;
-                cm1.Parameters.Add("@name", SqlDbType.VarChar);
-                cm1.Parameters["@name"].Value = theme;
+                cm.Parameters.Add("@color", SqlDbType.VarChar);
 
+                cm.Parameters["@name"].Value = theme;
+
+                cm.Parameters["@color"].Value = "top";
                 string top = cm.ExecuteScalar().ToString();
-                string bottom = cm1.ExecuteScalar().ToString();
+
+                cm.Parameters["@color"].Value = "bottom";
+                string bottom = cm.ExecuteScalar().ToString();
+
 
                 SideBoard.TopColor = ColorTranslator.FromHtml(top);
                 SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
 
                 DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
                 DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
-                
             }
         }
+        
     }
 }

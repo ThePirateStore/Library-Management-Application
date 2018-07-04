@@ -36,13 +36,11 @@
             this.Members = new System.Windows.Forms.TabPage();
             this.Books = new System.Windows.Forms.TabPage();
             this.Settings = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.DemoPanelG = new LibraryManagement.GradientPanel();
             this.GradientThemeRadio = new System.Windows.Forms.RadioButton();
-            this.GradientThemeCombo = new System.Windows.Forms.ComboBox();
-            this.DemoPanelS = new System.Windows.Forms.Panel();
-            this.SolidThemeRadio = new System.Windows.Forms.RadioButton();
             this.SolidThemeCombo = new System.Windows.Forms.ComboBox();
+            this.SolidThemeRadio = new System.Windows.Forms.RadioButton();
+            this.GradientThemeCombo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,7 +51,7 @@
             this.SidePanelSlideTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.SideBoard = new LibraryManagement.GradientPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MenuButton = new System.Windows.Forms.Button();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MembersButton = new System.Windows.Forms.Button();
             this.BookIssueButton = new System.Windows.Forms.Button();
@@ -63,9 +61,7 @@
             this.DragControl = new LibraryManagement.DragControl();
             this.BodyTabControl.SuspendLayout();
             this.Settings.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.DemoPanelG.SuspendLayout();
-            this.DemoPanelS.SuspendLayout();
             this.SideBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,7 +122,7 @@
             // 
             // Settings
             // 
-            this.Settings.Controls.Add(this.panel2);
+            this.Settings.Controls.Add(this.DemoPanelG);
             this.Settings.Controls.Add(this.label5);
             this.Settings.Controls.Add(this.label4);
             this.Settings.Controls.Add(this.label3);
@@ -140,66 +136,51 @@
             this.Settings.Text = "Settings";
             this.Settings.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.DemoPanelG);
-            this.panel2.Controls.Add(this.DemoPanelS);
-            this.panel2.Location = new System.Drawing.Point(39, 163);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(566, 192);
-            this.panel2.TabIndex = 6;
-            // 
             // DemoPanelG
             // 
             this.DemoPanelG.Angle = 45F;
+            this.DemoPanelG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DemoPanelG.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(155)))));
             this.DemoPanelG.Controls.Add(this.GradientThemeRadio);
+            this.DemoPanelG.Controls.Add(this.SolidThemeCombo);
+            this.DemoPanelG.Controls.Add(this.SolidThemeRadio);
             this.DemoPanelG.Controls.Add(this.GradientThemeCombo);
-            this.DemoPanelG.Location = new System.Drawing.Point(0, 0);
+            this.DemoPanelG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DemoPanelG.Location = new System.Drawing.Point(39, 173);
             this.DemoPanelG.Name = "DemoPanelG";
-            this.DemoPanelG.Size = new System.Drawing.Size(273, 192);
+            this.DemoPanelG.Size = new System.Drawing.Size(570, 192);
             this.DemoPanelG.TabIndex = 11;
             this.DemoPanelG.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(201)))), ((int)(((byte)(61)))));
             // 
             // GradientThemeRadio
             // 
             this.GradientThemeRadio.AutoSize = true;
+            this.GradientThemeRadio.Checked = true;
             this.GradientThemeRadio.Location = new System.Drawing.Point(12, 13);
             this.GradientThemeRadio.Name = "GradientThemeRadio";
             this.GradientThemeRadio.Size = new System.Drawing.Size(65, 17);
             this.GradientThemeRadio.TabIndex = 2;
+            this.GradientThemeRadio.TabStop = true;
             this.GradientThemeRadio.Text = "Gradient";
             this.GradientThemeRadio.UseVisualStyleBackColor = true;
             this.GradientThemeRadio.CheckedChanged += new System.EventHandler(this.GradientThemeRadio_CheckedChanged);
             // 
-            // GradientThemeCombo
+            // SolidThemeCombo
             // 
-            this.GradientThemeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GradientThemeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GradientThemeCombo.FormattingEnabled = true;
-            this.GradientThemeCombo.Items.AddRange(new object[] {
-            "Ohhappiness",
-            "Rainbow Blue",
-            "Orange Fun"});
-            this.GradientThemeCombo.Location = new System.Drawing.Point(114, 11);
-            this.GradientThemeCombo.Name = "GradientThemeCombo";
-            this.GradientThemeCombo.Size = new System.Drawing.Size(136, 21);
-            this.GradientThemeCombo.TabIndex = 0;
-            this.GradientThemeCombo.SelectedIndexChanged += new System.EventHandler(this.GradientThemeCombo_SelectedIndexChanged);
-            // 
-            // DemoPanelS
-            // 
-            this.DemoPanelS.Controls.Add(this.SolidThemeRadio);
-            this.DemoPanelS.Controls.Add(this.SolidThemeCombo);
-            this.DemoPanelS.Location = new System.Drawing.Point(298, 0);
-            this.DemoPanelS.Name = "DemoPanelS";
-            this.DemoPanelS.Size = new System.Drawing.Size(267, 192);
-            this.DemoPanelS.TabIndex = 12;
+            this.SolidThemeCombo.FormattingEnabled = true;
+            this.SolidThemeCombo.Items.AddRange(new object[] {
+            "Light",
+            "Dark"});
+            this.SolidThemeCombo.Location = new System.Drawing.Point(376, 9);
+            this.SolidThemeCombo.Name = "SolidThemeCombo";
+            this.SolidThemeCombo.Size = new System.Drawing.Size(136, 21);
+            this.SolidThemeCombo.TabIndex = 1;
+            this.SolidThemeCombo.SelectedIndexChanged += new System.EventHandler(this.SolidThemeCombo_SelectedIndexChanged);
             // 
             // SolidThemeRadio
             // 
             this.SolidThemeRadio.AutoSize = true;
-            this.SolidThemeRadio.Location = new System.Drawing.Point(14, 11);
+            this.SolidThemeRadio.Location = new System.Drawing.Point(285, 13);
             this.SolidThemeRadio.Name = "SolidThemeRadio";
             this.SolidThemeRadio.Size = new System.Drawing.Size(48, 17);
             this.SolidThemeRadio.TabIndex = 2;
@@ -208,13 +189,19 @@
             this.SolidThemeRadio.UseVisualStyleBackColor = true;
             this.SolidThemeRadio.CheckedChanged += new System.EventHandler(this.SolidThemeRadio_CheckedChanged);
             // 
-            // SolidThemeCombo
+            // GradientThemeCombo
             // 
-            this.SolidThemeCombo.FormattingEnabled = true;
-            this.SolidThemeCombo.Location = new System.Drawing.Point(105, 11);
-            this.SolidThemeCombo.Name = "SolidThemeCombo";
-            this.SolidThemeCombo.Size = new System.Drawing.Size(136, 21);
-            this.SolidThemeCombo.TabIndex = 1;
+            this.GradientThemeCombo.BackColor = System.Drawing.SystemColors.Window;
+            this.GradientThemeCombo.FormattingEnabled = true;
+            this.GradientThemeCombo.Items.AddRange(new object[] {
+            "Ohhappiness",
+            "Rainbow Blue",
+            "Orange Fun"});
+            this.GradientThemeCombo.Location = new System.Drawing.Point(108, 9);
+            this.GradientThemeCombo.Name = "GradientThemeCombo";
+            this.GradientThemeCombo.Size = new System.Drawing.Size(136, 21);
+            this.GradientThemeCombo.TabIndex = 0;
+            this.GradientThemeCombo.SelectedIndexChanged += new System.EventHandler(this.GradientThemeCombo_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -307,7 +294,7 @@
             // 
             this.SideBoard.Angle = 45F;
             this.SideBoard.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(155)))));
-            this.SideBoard.Controls.Add(this.button1);
+            this.SideBoard.Controls.Add(this.MenuButton);
             this.SideBoard.Controls.Add(this.SettingsButton);
             this.SideBoard.Controls.Add(this.MembersButton);
             this.SideBoard.Controls.Add(this.BookIssueButton);
@@ -321,18 +308,20 @@
             this.SideBoard.TabIndex = 2;
             this.SideBoard.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(201)))), ((int)(((byte)(61)))));
             // 
-            // button1
+            // MenuButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(8, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = false;
+            this.MenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.MenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuButton.BackgroundImage")));
+            this.MenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.MenuButton.FlatAppearance.BorderSize = 0;
+            this.MenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MenuButton.Location = new System.Drawing.Point(8, 12);
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.Size = new System.Drawing.Size(35, 35);
+            this.MenuButton.TabIndex = 6;
+            this.MenuButton.UseVisualStyleBackColor = false;
             // 
             // SettingsButton
             // 
@@ -342,8 +331,8 @@
             this.SettingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingsButton.BackgroundImage")));
             this.SettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SettingsButton.FlatAppearance.BorderSize = 0;
-            this.SettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.SettingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.SettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SettingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SettingsButton.Location = new System.Drawing.Point(139, 12);
             this.SettingsButton.Name = "SettingsButton";
@@ -358,8 +347,8 @@
             this.MembersButton.BackColor = System.Drawing.Color.Transparent;
             this.MembersButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.MembersButton.FlatAppearance.BorderSize = 0;
-            this.MembersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.MembersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.MembersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MembersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MembersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MembersButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MembersButton.Image = ((System.Drawing.Image)(resources.GetObject("MembersButton.Image")));
@@ -379,8 +368,8 @@
             this.BookIssueButton.BackColor = System.Drawing.Color.Transparent;
             this.BookIssueButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.BookIssueButton.FlatAppearance.BorderSize = 0;
-            this.BookIssueButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.BookIssueButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.BookIssueButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BookIssueButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BookIssueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIssueButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BookIssueButton.Image = ((System.Drawing.Image)(resources.GetObject("BookIssueButton.Image")));
@@ -410,8 +399,8 @@
             this.DashboardButton.BackColor = System.Drawing.Color.Transparent;
             this.DashboardButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.DashboardButton.FlatAppearance.BorderSize = 0;
-            this.DashboardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.DashboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.DashboardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DashboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashboardButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboardButton.Image = ((System.Drawing.Image)(resources.GetObject("DashboardButton.Image")));
@@ -432,8 +421,8 @@
             this.BooksButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BooksButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.BooksButton.FlatAppearance.BorderSize = 0;
-            this.BooksButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.BooksButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.BooksButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BooksButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BooksButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BooksButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BooksButton.Image = ((System.Drawing.Image)(resources.GetObject("BooksButton.Image")));
@@ -466,11 +455,8 @@
             this.BodyTabControl.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.DemoPanelG.ResumeLayout(false);
             this.DemoPanelG.PerformLayout();
-            this.DemoPanelS.ResumeLayout(false);
-            this.DemoPanelS.PerformLayout();
             this.SideBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -493,21 +479,19 @@
         private GradientPanel SidePanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button SettingsButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button MenuButton;
         private System.Windows.Forms.TabPage Settings;
-        private System.Windows.Forms.Panel panel2;
-        private GradientPanel DemoPanelG;
-        private System.Windows.Forms.ComboBox GradientThemeCombo;
-        private System.Windows.Forms.Panel DemoPanelS;
-        private System.Windows.Forms.ComboBox SolidThemeCombo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private ToggleSwitch SlidingTbiSwitch;
-        private System.Windows.Forms.RadioButton SolidThemeRadio;
+        private GradientPanel DemoPanelG;
         private System.Windows.Forms.RadioButton GradientThemeRadio;
+        private System.Windows.Forms.ComboBox SolidThemeCombo;
+        private System.Windows.Forms.RadioButton SolidThemeRadio;
+        private System.Windows.Forms.ComboBox GradientThemeCombo;
     }
 }
 
