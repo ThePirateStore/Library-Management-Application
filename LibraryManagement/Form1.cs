@@ -8,10 +8,14 @@ namespace LibraryManagement
 {
     public partial class Form1 : Form
     {
-        int bottom;
-        int top;
-        int difference;
-        int toAdd;
+        private int bottom;
+        private int top;
+        private int difference;
+        private int toAdd;
+        private int prvIndexG;
+        private int prvIndexS;
+
+        Color backColor;
 
         private string connStr = "Data Source=.;Initial Catalog=dbLibManager;Integrated Security=True";
 
@@ -29,6 +33,11 @@ namespace LibraryManagement
         {
             SolidThemeCombo.SelectedIndex = 0;
             GradientThemeCombo.SelectedIndex = 0;
+
+            GradientThemeRadio.Checked = true;
+
+            prvIndexG = GradientThemeCombo.SelectedIndex;
+            prvIndexS = SolidThemeCombo.SelectedIndex;
         }
 
         private void DashboardButton_Click(object sender, EventArgs e)
@@ -41,6 +50,8 @@ namespace LibraryManagement
                 SidePanel.Top = DashboardButton.Top;
 
             SidePanel.Height = DashboardButton.Height;
+
+            ResetTheme();
         }
 
         private void BookIssueButton_Click(object sender, EventArgs e)
@@ -53,6 +64,8 @@ namespace LibraryManagement
                 SidePanel.Top = BookIssueButton.Top;
 
             SidePanel.Height = BookIssueButton.Height;
+
+            ResetTheme();
         }
 
         private void MembersButton_Click(object sender, EventArgs e)
@@ -65,6 +78,8 @@ namespace LibraryManagement
                 SidePanel.Top = MembersButton.Top;
 
             SidePanel.Height = MembersButton.Height;
+
+            ResetTheme();
         }
 
         private void BooksButton_Click(object sender, EventArgs e)
@@ -77,6 +92,8 @@ namespace LibraryManagement
                 SidePanel.Top = BooksButton.Top;
 
             SidePanel.Height = BooksButton.Height;
+
+            ResetTheme();
         }
 
         #region Slide Panel
@@ -135,7 +152,7 @@ namespace LibraryManagement
             }
         }
         #endregion
-
+    
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             BodyTabControl.SelectTab(Settings);
@@ -183,10 +200,9 @@ namespace LibraryManagement
             {
                 conn.Open();
 
-                SideBoard.Invalidate();
-                DemoPanelG.Invalidate();
+                DemoPanel.Invalidate();
 
-                SqlCommand cm = new SqlCommand("Select Case @color when 'top' then ColorTop when 'bottom' then ColorBottom End as Coloumn From Theme Where [Name] = @name", conn);
+                SqlCommand cm = new SqlCommand("Select Case @color when 'top' then ColorTop when 'bottom' then ColorBottom when 'txt' then TextColor when 'app' then AppColor End as Coloumn From Theme Where [Name] = @name", conn);
 
                 cm.Parameters.Add("@name", SqlDbType.VarChar);
                 cm.Parameters.Add("@color", SqlDbType.VarChar);
@@ -199,14 +215,66 @@ namespace LibraryManagement
                 cm.Parameters["@color"].Value = "bottom";
                 string bottom = cm.ExecuteScalar().ToString();
 
+                cm.Parameters["@color"].Value = "txt";
+                string txtcolor = cm.ExecuteScalar().ToString();
 
-                SideBoard.TopColor = ColorTranslator.FromHtml(top);
-                SideBoard.BottomColor = ColorTranslator.FromHtml(bottom);
+                cm.Parameters["@color"].Value = "app";
+                string appcolor = cm.ExecuteScalar().ToString();
+                
+                DemoPanel.TopColor = ColorTranslator.FromHtml(top);
+                DemoPanel.BottomColor = ColorTranslator.FromHtml(bottom);
 
-                DemoPanelG.TopColor = ColorTranslator.FromHtml(top);
-                DemoPanelG.BottomColor = ColorTranslator.FromHtml(bottom);
+                DemoPanel.ForeColor = ColorTranslator.FromHtml(txtcolor);
+
+                backColor = ColorTranslator.FromHtml(appcolor);
             }
         }
-        
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            SideBoard.Invalidate();
+            Control[] controls = { DashboardButton, BooksButton, BookIssueButton, MembersButton, BodyTabControl, HeaderPanel };
+
+            for (int i = 0; i < BodyTabControl.TabCount; i++)
+            {
+                BodyTabControl.TabPages[i].BackColor = backColor;
+            }
+
+            SideBoard.TopColor = DemoPanel.TopColor;
+            SideBoard.BottomColor = DemoPanel.BottomColor;
+
+            foreach (Control c in controls)
+            {
+                c.ForeColor = DemoPanel.ForeColor;
+            }
+
+            DemoPanel.BackColor = Color.Transparent;
+
+            prvIndexS = SolidThemeCombo.SelectedIndex;
+            prvIndexG = GradientThemeCombo.SelectedIndex;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            ResetTheme();
+        }
+
+        private void ResetTheme()
+        {
+            DemoPanel.Invalidate();
+
+            SolidThemeCombo.SelectedIndex = prvIndexS;
+            GradientThemeCombo.SelectedIndex = prvIndexG;
+
+            DemoPanel.TopColor = SideBoard.TopColor;
+            DemoPanel.BottomColor = SideBoard.BottomColor;
+
+            DemoPanel.ForeColor = DashboardButton.ForeColor;
+
+            if (SideBoard.TopColor == SideBoard.BottomColor)
+                SolidThemeRadio.Checked = true;
+            else
+                GradientThemeRadio.Checked = true;
+        }
     }
 }
