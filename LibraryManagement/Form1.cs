@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Data;
+using LibraryManagement.Properties;
 
 namespace LibraryManagement
 {
@@ -243,9 +244,32 @@ namespace LibraryManagement
             SideBoard.TopColor = DemoPanel.TopColor;
             SideBoard.BottomColor = DemoPanel.BottomColor;
 
+            HeaderPanel.BackColor = backColor;
+
             foreach (Control c in controls)
             {
                 c.ForeColor = DemoPanel.ForeColor;
+            }
+
+            if (DemoPanel.ForeColor.GetBrightness() < 0.5)
+            {
+                DashboardButton.Image = Resources.Dashboard_Black;
+                MembersButton.Image = Resources.Members_Black;
+                BookIssueButton.Image = Resources.BookIssue_Black;
+                BooksButton.Image = Resources.Books_Black;
+                CloseButton.BackgroundImage = Resources.Close_Black;
+                MenuButton.BackgroundImage = Resources.Menu_Black;
+                SettingsButton.BackgroundImage = Resources.Settings_Black;
+            }
+            else
+            {
+                DashboardButton.Image = Resources.Dashboard_White;
+                MembersButton.Image = Resources.Members_White;
+                BookIssueButton.Image = Resources.BookIssue_White;
+                BooksButton.Image = Resources.Books_White;
+                CloseButton.BackgroundImage = Resources.Close_White;
+                MenuButton.BackgroundImage = Resources.Menu_White;
+                SettingsButton.BackgroundImage = Resources.Settings_White;
             }
 
             DemoPanel.BackColor = Color.Transparent;
@@ -275,6 +299,16 @@ namespace LibraryManagement
                 SolidThemeRadio.Checked = true;
             else
                 GradientThemeRadio.Checked = true;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MinimizeButton_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BodyTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.Dashboard = new System.Windows.Forms.TabPage();
             this.Book_Issue = new System.Windows.Forms.TabPage();
@@ -43,6 +42,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.ApplyButton = new System.Windows.Forms.Button();
             this.DemoPanel = new LibraryManagement.GradientPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.GradientThemeRadio = new System.Windows.Forms.RadioButton();
@@ -50,10 +52,9 @@
             this.SolidThemeRadio = new System.Windows.Forms.RadioButton();
             this.GradientThemeCombo = new System.Windows.Forms.ComboBox();
             this.SlidingTbiSwitch = new LibraryManagement.ToggleSwitch();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.ApplyButton = new System.Windows.Forms.Button();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.MinimizeButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.SidePanelSlideTimer = new System.Windows.Forms.Timer(this.components);
             this.SideBoard = new LibraryManagement.GradientPanel();
             this.MenuButton = new System.Windows.Forms.Button();
@@ -66,8 +67,9 @@
             this.DragControl = new LibraryManagement.DragControl();
             this.BodyTabControl.SuspendLayout();
             this.Settings.SuspendLayout();
-            this.DemoPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.DemoPanel.SuspendLayout();
+            this.HeaderPanel.SuspendLayout();
             this.SideBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,9 +138,9 @@
             this.Settings.Controls.Add(this.label3);
             this.Settings.Controls.Add(this.label2);
             this.Settings.Controls.Add(this.label1);
+            this.Settings.Controls.Add(this.panel2);
             this.Settings.Controls.Add(this.DemoPanel);
             this.Settings.Controls.Add(this.SlidingTbiSwitch);
-            this.Settings.Controls.Add(this.panel2);
             this.Settings.Location = new System.Drawing.Point(4, 22);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(738, 467);
@@ -216,6 +218,38 @@
             this.label1.Size = new System.Drawing.Size(168, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Persnalization";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.CancelButton);
+            this.panel2.Controls.Add(this.ApplyButton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 439);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(721, 44);
+            this.panel2.TabIndex = 12;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Location = new System.Drawing.Point(649, 6);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 1;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyButton.Location = new System.Drawing.Point(562, 6);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.ApplyButton.TabIndex = 0;
+            this.ApplyButton.Text = "Apply";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // DemoPanel
             // 
@@ -306,47 +340,43 @@
             this.SlidingTbiSwitch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SlidingTbiSwitch.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.CancelButton);
-            this.panel2.Controls.Add(this.ApplyButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 439);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(721, 44);
-            this.panel2.TabIndex = 12;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Location = new System.Drawing.Point(649, 6);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // ApplyButton
-            // 
-            this.ApplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApplyButton.Location = new System.Drawing.Point(562, 6);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
-            this.ApplyButton.TabIndex = 0;
-            this.ApplyButton.Text = "Apply";
-            this.ApplyButton.UseVisualStyleBackColor = true;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
-            // 
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.White;
-            this.HeaderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HeaderPanel.Controls.Add(this.MinimizeButton);
+            this.HeaderPanel.Controls.Add(this.CloseButton);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderPanel.Location = new System.Drawing.Point(190, 0);
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(746, 22);
             this.HeaderPanel.TabIndex = 3;
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimizeButton.Location = new System.Drawing.Point(702, 0);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(22, 22);
+            this.MinimizeButton.TabIndex = 1;
+            this.MinimizeButton.Text = "_";
+            this.MinimizeButton.UseVisualStyleBackColor = true;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackgroundImage = global::LibraryManagement.Properties.Resources.Close_Black;
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Location = new System.Drawing.Point(724, 0);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(22, 22);
+            this.CloseButton.TabIndex = 0;
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // SidePanelSlideTimer
             // 
@@ -374,7 +404,7 @@
             // MenuButton
             // 
             this.MenuButton.BackColor = System.Drawing.Color.Transparent;
-            this.MenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuButton.BackgroundImage")));
+            this.MenuButton.BackgroundImage = global::LibraryManagement.Properties.Resources.Menu_Black;
             this.MenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MenuButton.FlatAppearance.BorderSize = 0;
             this.MenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -391,7 +421,7 @@
             this.SettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SettingsButton.AutoEllipsis = true;
             this.SettingsButton.BackColor = System.Drawing.Color.Transparent;
-            this.SettingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingsButton.BackgroundImage")));
+            this.SettingsButton.BackgroundImage = global::LibraryManagement.Properties.Resources.Settings_Black;
             this.SettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SettingsButton.FlatAppearance.BorderSize = 0;
             this.SettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -414,7 +444,7 @@
             this.MembersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MembersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MembersButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembersButton.Image = ((System.Drawing.Image)(resources.GetObject("MembersButton.Image")));
+            this.MembersButton.Image = global::LibraryManagement.Properties.Resources.Members_Black;
             this.MembersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MembersButton.Location = new System.Drawing.Point(3, 157);
             this.MembersButton.Name = "MembersButton";
@@ -435,7 +465,7 @@
             this.BookIssueButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BookIssueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIssueButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BookIssueButton.Image = ((System.Drawing.Image)(resources.GetObject("BookIssueButton.Image")));
+            this.BookIssueButton.Image = global::LibraryManagement.Properties.Resources.BookIssue_Black;
             this.BookIssueButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BookIssueButton.Location = new System.Drawing.Point(3, 111);
             this.BookIssueButton.Name = "BookIssueButton";
@@ -466,7 +496,7 @@
             this.DashboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashboardButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DashboardButton.Image = ((System.Drawing.Image)(resources.GetObject("DashboardButton.Image")));
+            this.DashboardButton.Image = global::LibraryManagement.Properties.Resources.Dashboard_Black;
             this.DashboardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DashboardButton.Location = new System.Drawing.Point(3, 65);
             this.DashboardButton.Name = "DashboardButton";
@@ -488,7 +518,7 @@
             this.BooksButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BooksButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BooksButton.Font = new System.Drawing.Font("Segoe UI Light", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BooksButton.Image = ((System.Drawing.Image)(resources.GetObject("BooksButton.Image")));
+            this.BooksButton.Image = global::LibraryManagement.Properties.Resources.Books_Black;
             this.BooksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BooksButton.Location = new System.Drawing.Point(3, 203);
             this.BooksButton.Name = "BooksButton";
@@ -518,9 +548,10 @@
             this.BodyTabControl.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.DemoPanel.ResumeLayout(false);
             this.DemoPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.HeaderPanel.ResumeLayout(false);
             this.SideBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -561,6 +592,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button MinimizeButton;
+        private System.Windows.Forms.Button CloseButton;
     }
 }
 

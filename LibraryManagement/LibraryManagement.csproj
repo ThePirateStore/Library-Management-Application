@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <HintPath>..\..\..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Classes\CustomControls\RadioButton 2.0.cs">
       <SubType>Component</SubType>
@@ -99,6 +100,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookIssue_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookIssue_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Books_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Books_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Members_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Members_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_White.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
